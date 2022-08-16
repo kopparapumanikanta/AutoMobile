@@ -22,6 +22,7 @@ namespace AutoMobile.UILayer
             {
                 string s = TextBox1.Text;
                 string p = TextBox2.Text;
+                int id;
                 connection.Open();
                 string query = "SELECT * from [User] Where Email='" + s + "' AND Password='" + p + "'";
                 SqlCommand command = new SqlCommand(query, connection);
@@ -30,14 +31,15 @@ namespace AutoMobile.UILayer
                 {
                     while (dr.Read())
                     {
-
-                        Response.Redirect("home.aspx");
+                        id=Convert.ToInt32(dr.GetValue(0));
+                        Session["userID"] = id;
                     }
                 }
                 else
                 {
                     Response.Write("<script>alert('Not UserLogin  Sucessful');</script>");
                 }
+
 
             }
             catch (Exception)

@@ -55,8 +55,8 @@ namespace AutoMobile.UILayer
                         GridView1.DataBind();
 
                         Session["buyitems"] = dt;
-                        GridView1.FooterRow.Cells[4].Text = "Total Amount";
-                        GridView1.FooterRow.Cells[5].Text = grandtotal().ToString();
+                        GridView1.FooterRow.Cells[3].Text = "Total Amount";
+                        GridView1.FooterRow.Cells[4].Text = grandtotal().ToString();
                         Response.Redirect("mycart.aspx");   
 
                     }
@@ -92,8 +92,8 @@ namespace AutoMobile.UILayer
                         GridView1.DataBind();
 
                         Session["buyitems"] = dt;
-                        GridView1.FooterRow.Cells[5].Text = "Total Amount";
-                        GridView1.FooterRow.Cells[6].Text = grandtotal().ToString();
+                        GridView1.FooterRow.Cells[3].Text = "Total Amount";
+                        GridView1.FooterRow.Cells[4].Text = grandtotal().ToString();
                         Response.Redirect("mycart.aspx");
 
                     }
@@ -105,8 +105,8 @@ namespace AutoMobile.UILayer
                     GridView1.DataBind();
                     if (GridView1.Rows.Count > 0)
                     {
-                        GridView1.FooterRow.Cells[4].Text = "Total Amount";
-                        GridView1.FooterRow.Cells[5].Text = grandtotal().ToString();
+                        GridView1.FooterRow.Cells[3].Text = "Total Amount";
+                        GridView1.FooterRow.Cells[4].Text = grandtotal().ToString();
                     }
                 }
             }
@@ -163,6 +163,11 @@ namespace AutoMobile.UILayer
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("placeorder.aspx");
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Response.Redirect("EditOrder.aspx?sno=" + GridView1.SelectedRow.Cells[0].Text);
         }
     }          
 }   

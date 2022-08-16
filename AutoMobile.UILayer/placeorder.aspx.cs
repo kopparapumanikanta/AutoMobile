@@ -105,8 +105,8 @@ namespace AutoMobile.UILayer
                     GridView1.DataBind();
                     if (GridView1.Rows.Count > 0)
                     {
-                        GridView1.FooterRow.Cells[4].Text = "Total Amount";
-                        GridView1.FooterRow.Cells[5].Text = grandtotal().ToString();
+                        GridView1.FooterRow.Cells[3].Text = "Total Amount";
+                        GridView1.FooterRow.Cells[4].Text = grandtotal().ToString();
                     }
                 }
             }
@@ -144,7 +144,7 @@ namespace AutoMobile.UILayer
         }
         public void saveaddress()
         {
-            string updatepass = "insert into OrderAddress(orderid,address,mobilenumber) values('"+Label1.Text+"','"+TextBox1.Text+"','"+TextBox2.Text+"')";
+            string updatepass = "insert into OrderAddress(orderid) values('"+Label1.Text+"')";
             string mycon1= @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
             SqlConnection s = new SqlConnection(mycon1);
             s.Open();

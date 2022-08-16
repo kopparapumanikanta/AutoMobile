@@ -98,13 +98,12 @@ nav ul li a {
                    <ItemTemplate>
                        <table class="auto-style1">
                            <tr>
-                               <td class="auto-style2">Product ID :
-                                   <asp:Label ID="Label2" runat="server" Text='<%# Eval("ProductID") %>'></asp:Label>
+                               <td class="auto-style2">
+                                   <asp:Label ID="Label3" runat="server" Text='<%# Eval("ProductName") %>'></asp:Label>
                                </td>
                            </tr>
                            <tr>
-                               <td class="auto-style4">&nbsp;<asp:Label ID="Label3" runat="server" Text='<%# Eval("ProductName") %>'></asp:Label>
-                                   &nbsp;</td>
+                               <td class="auto-style4">&nbsp;&nbsp;</td>
                            </tr>
                            <tr>
                                <td class="auto-style3">
