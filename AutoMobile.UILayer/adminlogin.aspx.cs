@@ -13,13 +13,14 @@ namespace AutoMobile.UILayer
         {
 
         }
-        protected void AdminLogin(object sender, EventArgs e)
+        protected void login(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True");
+            String con = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(con);
             try
             {
                 connection.Open();
-                string query = "SELECT * from Admin Where email='" + TextBox1.Text + "' AND password='" + TextBox2.Text + "'";
+                string query = "SELECT * from Admin Where Email='" + TextBox1.Text + "' AND Password='" + TextBox2.Text + "'";
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataReader dr = command.ExecuteReader();
                 if (dr.HasRows)
@@ -32,7 +33,7 @@ namespace AutoMobile.UILayer
                 }
                 else
                 {
-                    Response.Write("<script>alert('Incorrect Username or Password');</script>");
+                    Response.Write("<script>alert(' AdminLogin Not Sucessful');</script>");
                 }
 
             }

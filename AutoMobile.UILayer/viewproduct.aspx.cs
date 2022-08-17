@@ -18,11 +18,10 @@ namespace AutoMobile.UILayer
                 //get();
             }
         }
-
         /*
         protected void get()
         {
-            String con = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
+            String con = "Data Source=desktop-2mev54k\\sqlexpress01;Initial Catalog=Automobile;Integrated Security=True";
             using (SqlConnection sqlCon = new SqlConnection(con))
             {
                 sqlCon.Open();
@@ -33,8 +32,7 @@ namespace AutoMobile.UILayer
                 GridView1.DataBind();
 
             }
-       
-        } 
-        */
+
+        }*/
     }
 }

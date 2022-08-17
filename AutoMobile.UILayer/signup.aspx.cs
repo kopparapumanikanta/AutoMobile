@@ -17,7 +17,8 @@ namespace AutoMobile.UILayer
 
         protected void signupbtn_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True");
+            String con = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(con);
             try
             {
                 connection.Open();
@@ -25,7 +26,6 @@ namespace AutoMobile.UILayer
                 SqlCommand cmd = new SqlCommand("insert into [User] values('" + TextBox2.Text + "','" + TextBox1.Text + "','" + TextBox5.Text + "')", connection);
                 int t = cmd.ExecuteNonQuery();
                 Response.Write("<script>alert('SignUp Sucessful');</script>");
-                Response.Redirect("userlogin.aspx");
 
             }
             catch (Exception ex)

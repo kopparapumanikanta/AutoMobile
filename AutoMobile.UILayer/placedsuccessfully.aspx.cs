@@ -13,6 +13,7 @@ namespace AutoMobile.UILayer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             get();
         }
         protected void get()

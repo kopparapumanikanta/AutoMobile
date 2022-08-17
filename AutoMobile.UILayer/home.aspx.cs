@@ -12,7 +12,8 @@ namespace AutoMobile.UILayer
 {
     public partial class home : System.Web.UI.Page
     {
-        
+
+       
         String con = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -2,7 +2,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
        <form id="form1" runat="server">
        <style>
-        * {
+              * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,7 +12,7 @@
 
 nav {
     height: 80px;
-    background-color: black;
+    background-color: #1f1d4e;
     padding-top: 30px;
     padding-left: 10px;
 }
@@ -57,21 +57,48 @@ nav ul li a {
     justify-content: space-between;
     margin-left: 530px;
 }
-           .auto-style1 {
-               width: 100%;
-               height: 254px;
-           }
-           .auto-style2 {
-               text-align: center;
-           }
-           .auto-style3 {
-               height: 16px;
-               text-align: center;
-           }
-           .auto-style4 {
-               text-align: center;
-               height: 22px;
-           }
+.ab {
+    background-color: white;
+    height: 14px;
+}
+
+
+body {
+    background-color: #cac79f;
+    height: 100vh;
+}
+
+.homebody {
+    height: max-content;
+    background-color: #cac79f;
+}
+
+.container {
+    margin-top: 2%;
+    margin-left:10%;
+    background-color: #cac79f;
+  
+}
+
+
+.textdata1{
+    font-size:30px;
+    margin-left:35%; 
+}
+
+.textdata2 {
+    font-size:30px;
+}
+
+
+
+tr > * + * {
+  padding-left: 8em;
+}
+
+
+        
+           
            </style>
 
      <nav>
@@ -80,34 +107,38 @@ nav ul li a {
          <ul>
 
            
+                <li><asp:HyperLink href="home.aspx"  class="active"  id="HyperLink2" runat="server">Home</asp:HyperLink></li>
+             <li><asp:HyperLink href="mycart.aspx"   id="HyperLink3" runat="server">My Cart</asp:HyperLink></li>
+   <li><asp:HyperLink href="placeorder.aspx"  ID="billButton" runat="server" >Bill Page</asp:HyperLink></li>
+           
             <li><asp:HyperLink href="userlogin.aspx" class="Logout" ID="logout" runat="server" >Logout</asp:HyperLink></li>
+           
 
            
         </ul>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/mycart.aspx">My Cart</asp:HyperLink>
+       
            </nav>
+            <div class="ab"></div>
            <div>
                <br />
                 <br />
 
 
-               <asp:DataList ID="DataList1" runat="server" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataSourceID="SqlDataSource1" GridLines="Both" Height="490px" RepeatColumns="3" RepeatDirection="Horizontal" Width="802px" OnItemCommand="DataList1_ItemCommand" DataKeyField="ProductID">
-                   <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-                   <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-                   <ItemStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+               <asp:DataList ID="DataList1" runat="server" style="margin-left:25%; background-color: mist;" DataSourceID="SqlDataSource1" Height="490px" RepeatColumns="3" RepeatDirection="Horizontal" Width="850px" OnItemCommand="DataList1_ItemCommand" DataKeyField="ProductID">
                    <ItemTemplate>
                        <table class="auto-style1">
-                           <tr>
-                               <td class="auto-style2">
-                                   <asp:Label ID="Label3" runat="server" Text='<%# Eval("ProductName") %>'></asp:Label>
-                               </td>
-                           </tr>
+                           
                            <tr>
                                <td class="auto-style4">&nbsp;&nbsp;</td>
                            </tr>
                            <tr>
                                <td class="auto-style3">
                                    <img src="Images/<%#Eval("Image")%>" style="width: 150px; height: 140px;" />
+                               </td>
+                           </tr>
+                           <tr>
+                               <td class="auto-style2">
+                                   <asp:Label ID="Label3" runat="server" Text='<%# Eval("ProductName") %>'></asp:Label>
                                </td>
                            </tr>
                            <tr>
@@ -135,7 +166,6 @@ nav ul li a {
                        <br />
                        <br />
                    </ItemTemplate>
-                   <SelectedItemStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
                </asp:DataList>
                <br />
                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AutoMobileDBConnectionString %>" SelectCommand="SELECT * FROM [Product]"></asp:SqlDataSource>

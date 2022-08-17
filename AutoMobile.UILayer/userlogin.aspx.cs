@@ -17,7 +17,8 @@ namespace AutoMobile.UILayer
 
         protected void loginbtn_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True");
+            String con = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(con);
             try
             {
                 string s = TextBox1.Text;
@@ -32,13 +33,13 @@ namespace AutoMobile.UILayer
                     while (dr.Read())
                     {
                         id=Convert.ToInt32(dr.GetValue(0));
-                        Session["userID"] = id;
+                       // Session["userID"] = id;
                     }
                     Response.Redirect("home.aspx");
                 }
                 else
                 {
-                    Response.Write("<script>alert('Incorrect Username or Password');</script>");
+                    Response.Write("<script>alert('Not UserLogin  Sucessful');</script>");
                 }
 
 

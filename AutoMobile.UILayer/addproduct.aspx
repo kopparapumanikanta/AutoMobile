@@ -79,7 +79,7 @@ h3 {
     margin-left: 33%;
     margin-right: 33%;
     height: 70vh;
-    background-color:  #1f1d4e;
+    background-color: #1f1d4e;
 }
 
 .formcontrol {

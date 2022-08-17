@@ -20,7 +20,8 @@ namespace AutoMobile.UILayer
         }
             protected void add(object sender, EventArgs e)
             {
-                SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True");
+            String con = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(con);
                 if (FileUpload1.HasFiles)
                 {
                     try

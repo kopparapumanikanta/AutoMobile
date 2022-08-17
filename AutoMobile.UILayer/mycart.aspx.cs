@@ -13,8 +13,11 @@ namespace AutoMobile.UILayer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+           
             if (!IsPostBack)
             {
+                
                 DataTable dt = new DataTable();
                 DataRow dr;
                 dt.Columns.Add("sno");
@@ -29,8 +32,8 @@ namespace AutoMobile.UILayer
                     if (Session["BuyItems"] == null)
                     {
                         dr = dt.NewRow();
-                        String mycon = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
-                        SqlConnection scon = new SqlConnection(mycon);
+                        String con = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
+                        SqlConnection scon = new SqlConnection(con);
                         scon.Open();
                         string myquery = "select * from Product where productid=" + Request.QueryString["id"];
                         SqlCommand cmd = new SqlCommand();
@@ -66,8 +69,8 @@ namespace AutoMobile.UILayer
                         int sr;
                         sr = dt.Rows.Count;
                         dr = dt.NewRow();
-                        String mycon = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
-                        SqlConnection scon = new SqlConnection(mycon);
+                        String con = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
+                        SqlConnection scon = new SqlConnection(con);
                         scon.Open();
                         string myquery = "select * from Product where productid=" + Request.QueryString["id"];
                         SqlCommand cmd = new SqlCommand();
@@ -110,6 +113,14 @@ namespace AutoMobile.UILayer
                     }
                 }
             }
+            if (GridView1.Rows.Count > 0)
+            {
+                Button1.Enabled = true;
+                Button1.Text = "Checkout";
+
+                Label2.Text = "";
+            }
+
         }
         public int grandtotal()
         {

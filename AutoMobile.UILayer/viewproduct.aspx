@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-        <style>
+    <style>
 * {
     margin: 0;
     padding: 0;
@@ -52,6 +52,7 @@ nav ul li a.active {
     background: #fff;
 }
 
+
 .Logout {
     justify-content: space-between;
     margin-left: 530px;
@@ -79,16 +80,17 @@ body {
     height: 100%;
 }
 
+
+
+
+
 #grid {
     width:75%;
      margin:4%;
-    background-color:black;
+    background-color:#1f1d4e;
     border-radius: 12px;
 }
 
-tr > * + * {
-  padding-left: 8em;
-}
 
 
 
@@ -107,10 +109,10 @@ tr > * + * {
  
      
         <div class="homebody" >
-            
+
             <form  runat="server">
            
-               <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  style="margin:5%; padding:20%; width:80%; height:80%;"  BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="ProductID" DataSourceID="SqlDataSource1" ForeColor="Black">
+                           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  style="margin:5%; padding:20%; width:80%; height:80%;"  BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="ProductID" DataSourceID="SqlDataSource1" ForeColor="Black">
                    <Columns>
                        <asp:TemplateField HeaderText="ProductID" InsertVisible="False" SortExpression="ProductID">
                            <EditItemTemplate>
@@ -180,5 +182,8 @@ tr > * + * {
             <asp:Parameter Name="Cost" Type="Int32" />
             <asp:Parameter Name="ProductID" Type="Int32" />
         </UpdateParameters>
-    </asp:SqlDataSource>  
+    </asp:SqlDataSource>
+
+ </form>
+    </div>  
 </asp:Content>

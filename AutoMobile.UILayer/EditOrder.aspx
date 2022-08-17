@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html >
 <head runat="server">
     <title></title>
     <style type="text/css">
@@ -50,7 +50,7 @@
         }
     </style>
 </head>
-<body style="width: 752px; height: 358px">
+<body style="width: 752px; height: 358px; background-color: #cac79f;">
     <form id="form1" runat="server">
         <div class="auto-style4">
             <div class="auto-style3">

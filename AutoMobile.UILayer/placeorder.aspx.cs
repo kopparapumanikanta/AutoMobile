@@ -29,6 +29,8 @@ namespace AutoMobile.UILayer
                     if (Session["BuyItems"] == null)
                     {
                         dr = dt.NewRow();
+                        
+
                         String mycon = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
                         SqlConnection scon = new SqlConnection(mycon);
                         scon.Open();
@@ -110,8 +112,24 @@ namespace AutoMobile.UILayer
                     }
                 }
             }
-            Label2.Text = DateTime.Now.ToShortDateString();
-            findorderid();
+
+          
+            if (GridView1.Rows.Count == 0)
+            {
+
+                Label1.Text = "";
+                Label2.Text = "";
+                Label5.Text = "";
+                Label6.Text = "";
+                Label3.Text = "No Order Placed Yet!!";
+
+            }
+            else
+            {
+                Button1.Enabled = true;
+                Button1.Text = "Place Order";
+              
+            }
 
         }
         public int grandtotal()
@@ -142,6 +160,7 @@ namespace AutoMobile.UILayer
             orderid = "Order" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString();
             Label1.Text = orderid;
         }
+        
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -150,8 +169,8 @@ namespace AutoMobile.UILayer
             for(int i=0; i<=dt.Rows.Count-1; i++)
             {
                 string updatepass = "insert into OrderDetails(orderid,sno,productid,productname,cost,quantity,dateoforder) values('" + Label1.Text + "','" + dt.Rows[i]["sno"] + "','" + dt.Rows[i]["productid"] + "','" + dt.Rows[i]["productname"] + "','"+ dt.Rows[i]["cost"]+ "','" + dt.Rows[i]["quantity"] + "','" + Label2.Text + "' )";
-                string mycon1 = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
-                SqlConnection s = new SqlConnection(mycon1);
+                String con = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
+                SqlConnection s = new SqlConnection(con);
                 s.Open();
                 SqlCommand cmd1 = new SqlCommand();
                 cmd1.CommandText = updatepass;
@@ -159,10 +178,13 @@ namespace AutoMobile.UILayer
                 cmd1.ExecuteNonQuery();
                 s.Close();
             }
-           // saveaddress();
-;
+            Label5.Text="Order ID: ";
+            Label6.Text="Order Date: ";
+            Label2.Text = DateTime.Now.ToShortDateString();
+            findorderid();
+            Label3.Text = "Your Order Has Been Placed Successfully!!!!";
+
+           
         }
-
-
     }   
 }

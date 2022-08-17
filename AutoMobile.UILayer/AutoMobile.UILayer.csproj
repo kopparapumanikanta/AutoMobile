@@ -130,7 +130,6 @@
     <Content Include="Images\download.jpg" />
     <Content Include="Images\shockers.jpg" />
     <Content Include="mycart.aspx" />
-    <Content Include="placedsuccessfully.aspx" />
     <Content Include="placeorder.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -209,13 +208,6 @@
     </Compile>
     <Compile Include="mycart.aspx.designer.cs">
       <DependentUpon>mycart.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="placedsuccessfully.aspx.cs">
-      <DependentUpon>placedsuccessfully.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="placedsuccessfully.aspx.designer.cs">
-      <DependentUpon>placedsuccessfully.aspx</DependentUpon>
     </Compile>
     <Compile Include="placeorder.aspx.cs">
       <DependentUpon>placeorder.aspx</DependentUpon>
