@@ -34,10 +34,11 @@ namespace AutoMobile.UILayer
                         id=Convert.ToInt32(dr.GetValue(0));
                         Session["userID"] = id;
                     }
+                    Response.Redirect("home.aspx");
                 }
                 else
                 {
-                    Response.Write("<script>alert('Not UserLogin  Sucessful');</script>");
+                    Response.Write("<script>alert('Incorrect Username or Password');</script>");
                 }
 
 

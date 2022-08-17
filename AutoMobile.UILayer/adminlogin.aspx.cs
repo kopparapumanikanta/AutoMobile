@@ -32,7 +32,7 @@ namespace AutoMobile.UILayer
                 }
                 else
                 {
-                    Response.Write("<script>alert(' AdminLogin Not Sucessful');</script>");
+                    Response.Write("<script>alert('Incorrect Username or Password');</script>");
                 }
 
             }

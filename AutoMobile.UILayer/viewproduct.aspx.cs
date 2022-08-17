@@ -15,10 +15,11 @@ namespace AutoMobile.UILayer
         {
             if (!Page.IsPostBack)
             {
-                get();
+                //get();
             }
         }
 
+        /*
         protected void get()
         {
             String con = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
@@ -32,7 +33,8 @@ namespace AutoMobile.UILayer
                 GridView1.DataBind();
 
             }
-
-        }
+       
+        } 
+        */
     }
 }

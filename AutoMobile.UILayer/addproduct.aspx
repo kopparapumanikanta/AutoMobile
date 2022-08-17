@@ -12,7 +12,7 @@
 
 nav {
     height: 80px;
-    background-color: black;
+    background-color: #1f1d4e;
     padding-top: 30px;
     padding-left: 10px;
 }
@@ -66,7 +66,7 @@ nav ul li a {
 .homebody {
     height: 110vh;
     width: 100%;
-    background-color: yellow;
+    background-color: #cac79f;
     padding-top: 2%;
 }
 
@@ -79,7 +79,7 @@ h3 {
     margin-left: 33%;
     margin-right: 33%;
     height: 70vh;
-    background-color: black;
+    background-color:  #1f1d4e;
 }
 
 .formcontrol {

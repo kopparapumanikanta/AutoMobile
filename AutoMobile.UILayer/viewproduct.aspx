@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <style>
+        <style>
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@
 
 nav {
     height: 80px;
-    background-color: black;
+    background-color: #1f1d4e;
     padding-top: 30px;
     padding-left: 10px;
 }
@@ -52,7 +52,6 @@ nav ul li a.active {
     background: #fff;
 }
 
-
 .Logout {
     justify-content: space-between;
     margin-left: 530px;
@@ -64,25 +63,21 @@ nav ul li a.active {
 }
 
 body {
-    background-color: yellow;
+    background-color: #cac79f;
     height: 100vh;
 }
 
 .homebody {
     height: 100vh;
-    background-color:yellow;
+    background-color:#cac79f;
 }
 
 .container {
     margin-top: 3%;
     width: 100%;
-    background-color: yellow;
+    background-color: #cac79f;
     height: 100%;
 }
-
-
-
-
 
 #grid {
     width:75%;
@@ -91,6 +86,9 @@ body {
     border-radius: 12px;
 }
 
+tr > * + * {
+  padding-left: 8em;
+}
 
 
 
@@ -109,34 +107,78 @@ body {
  
      
         <div class="homebody" >
-
+            
             <form  runat="server">
            
-                <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
-                    AutoGenerateColumns="False" style="margin:5%;  width:80%; height:80%;"  CellPadding="4" ForeColor="Black" GridLines="Horizontal">
-                    <Columns>
-                        <asp:BoundField DataField="ProductID" HeaderText="ProductID" />
-                        <asp:BoundField DataField="ProductName" HeaderText="ProductName" />
-                        <asp:TemplateField HeaderText="Image">
-                            <ItemTemplate>
-                          <img src="Images/<%#Eval("Image")%>" style="width: 150px; height: 140px;" />
-                      </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:BoundField DataField="Cost" HeaderText="Cost" />
-                    </Columns>
-                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                    <SortedDescendingHeaderStyle BackColor="#242121" />
+               <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  style="margin:5%; padding:20%; width:80%; height:80%;"  BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="ProductID" DataSourceID="SqlDataSource1" ForeColor="Black">
+                   <Columns>
+                       <asp:TemplateField HeaderText="ProductID" InsertVisible="False" SortExpression="ProductID">
+                           <EditItemTemplate>
+                               <asp:Label ID="Label1" runat="server" Text='<%# Eval("ProductID") %>'></asp:Label>
+                           </EditItemTemplate>
+                           <ItemTemplate>
+                               <asp:Label ID="Label1" runat="server" Text='<%# Bind("ProductID") %>'></asp:Label>
+                           </ItemTemplate>
+                       </asp:TemplateField>
+                       <asp:TemplateField HeaderText="ProductName" SortExpression="ProductName">
+                           <EditItemTemplate>
+                               <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("ProductName") %>'></asp:TextBox>
+                           </EditItemTemplate>
+                           <ItemTemplate>
+                               <asp:Label ID="Label2" runat="server" Text='<%# Bind("ProductName") %>'></asp:Label>
+                           </ItemTemplate>
+                       </asp:TemplateField>
+                       <asp:TemplateField HeaderText="Image" SortExpression="Image">
+                           <EditItemTemplate>
+                               <asp:FileUpload ID="FileUpload1" runat="server" FileName	='<%# Bind("Image") %>'/>
 
-                </asp:GridView>
+                             
+                           </EditItemTemplate>
+                           <ItemTemplate>
+                             <img src="Images/<%#Eval("Image")%>" style="width: 150px; height: 140px;" />
+
+                           </ItemTemplate>
+                       </asp:TemplateField>
+                       <asp:TemplateField HeaderText="Cost" SortExpression="Cost">
+                           <EditItemTemplate>
+                               <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Cost") %>'></asp:TextBox>
+                           </EditItemTemplate>
+                           <ItemTemplate>
+                               <asp:Label ID="Label4" runat="server" Text='<%# Bind("Cost") %>'></asp:Label>
+                           </ItemTemplate>
+                       </asp:TemplateField>
+                       <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                   </Columns>
+                   <FooterStyle BackColor="#CCCCCC" />
+                   <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                   <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                   <RowStyle BackColor="White" />
+                   <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                   <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                   <SortedAscendingHeaderStyle BackColor="Gray" />
+                   <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                   <SortedDescendingHeaderStyle BackColor="#383838" />
+
+               </asp:GridView> 
                           
     
 
  </form>
     </div>  
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:AutoMobileDBConnectionString %>" DeleteCommand="DELETE FROM [Product] WHERE [ProductID] = @ProductID" InsertCommand="INSERT INTO [Product] ([ProductName], [Image], [Cost]) VALUES (@ProductName, @Image, @Cost)" SelectCommand="SELECT * FROM [Product]" UpdateCommand="UPDATE [Product] SET [ProductName] = @ProductName, [Image] = @Image, [Cost] = @Cost WHERE [ProductID] = @ProductID">
+        <DeleteParameters>
+            <asp:Parameter Name="ProductID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="ProductName" Type="String" />
+            <asp:Parameter Name="Image" Type="String" />
+            <asp:Parameter Name="Cost" Type="Int32" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="ProductName" Type="String" />
+            <asp:Parameter Name="Image" Type="String" />
+            <asp:Parameter Name="Cost" Type="Int32" />
+            <asp:Parameter Name="ProductID" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>  
 </asp:Content>

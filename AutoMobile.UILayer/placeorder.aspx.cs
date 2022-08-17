@@ -142,18 +142,6 @@ namespace AutoMobile.UILayer
             orderid = "Order" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString();
             Label1.Text = orderid;
         }
-        public void saveaddress()
-        {
-            string updatepass = "insert into OrderAddress(orderid) values('"+Label1.Text+"')";
-            string mycon1= @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AutoMobileDB;Integrated Security=True";
-            SqlConnection s = new SqlConnection(mycon1);
-            s.Open();
-            SqlCommand cmd1 = new SqlCommand();
-            cmd1.CommandText = updatepass;
-            cmd1.Connection = s;
-            cmd1.ExecuteNonQuery();
-            s.Close();
-        }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -171,7 +159,7 @@ namespace AutoMobile.UILayer
                 cmd1.ExecuteNonQuery();
                 s.Close();
             }
-            saveaddress();
+           // saveaddress();
             Response.Redirect("placedsuccessfully.aspx");
 ;
         }

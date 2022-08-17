@@ -25,6 +25,7 @@ namespace AutoMobile.UILayer
                 SqlCommand cmd = new SqlCommand("insert into [User] values('" + TextBox2.Text + "','" + TextBox1.Text + "','" + TextBox5.Text + "')", connection);
                 int t = cmd.ExecuteNonQuery();
                 Response.Write("<script>alert('SignUp Sucessful');</script>");
+                Response.Redirect("userlogin.aspx");
 
             }
             catch (Exception ex)
