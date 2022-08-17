@@ -160,8 +160,9 @@ namespace AutoMobile.UILayer
                 s.Close();
             }
            // saveaddress();
-            Response.Redirect("placedsuccessfully.aspx");
 ;
         }
+
+
     }   
 }
